@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Next Evolution of Telecom Apps</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: #f5f7f9;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .slide-container {
+        width: 100%;
+        min-width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        position: relative;
+        background-color: #ffffff;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .header-bar {
+        height: 12px;
+        width: 100%;
+        background-color: #009a44;
+      }
+
+      .top-nav {
+        padding: 30px 60px 10px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-teletalk {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        background: #009a44;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .teletalk-green {
+        color: #009a44;
+      }
+
+      .section-tag {
+        background-color: #e6f5ed;
+        color: #009a44;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 20px 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .hero-heading {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .headline {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 42px;
+        color: #1f2937;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      .sub-headline {
+        font-size: 24px;
+        color: #009a44;
+        margin-bottom: 40px;
+        font-weight: 500;
+      }
+
+      .blocks-container {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .stat-block {
+        flex: 1;
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s;
+      }
+
+      .icon-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .block-entertainment .icon-circle {
+        background-color: rgba(108, 58, 255, 0.1);
+        color: #6c3aff;
+      }
+
+      .block-utilities .icon-circle {
+        background-color: rgba(212, 160, 23, 0.1);
+        color: #d4a017;
+      }
+
+      .block-content .icon-circle {
+        background-color: rgba(255, 107, 44, 0.1);
+        color: #ff6b2c;
+      }
+
+      .block-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #111827;
+      }
+
+      .block-desc {
+        font-size: 16px;
+        color: #6b7280;
+        line-height: 1.5;
+      }
+
+      .statement-box {
+        background-color: #009a44;
+        color: white;
+        padding: 25px 40px;
+        border-radius: 12px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .statement-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        position: relative;
+        z-index: 2;
+      }
+
+      .statement-bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .footer {
+        padding: 20px 60px;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #6b7280;
+        background-color: #fff;
+      }
+
+      .trend-note {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: #4b5563;
+        background-color: #f3f4f6;
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 1px solid #e5e7eb;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .slide-number {
+        color: #009a44;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <div class="header-bar"></div>
+
+      <header class="top-nav">
+        <div class="logo-teletalk">
+          <div class="logo-icon">
+            <i class="fas fa-phone-alt text-white" style="font-size: 16px"></i>
+          </div>
+          <p class="font-bold text-xl text-gray-800 tracking-tight">
+            <span class="text-gray-500">my</span><span class="teletalk-green">teletalk</span>
+          </p>
+        </div>
+        <div class="section-tag">Market Opportunity</div>
+      </header>
+
+      <main class="main-content">
+        <div class="hero-heading">
+          <h1 class="headline">The Next Evolution of Telecom Apps</h1>
+          <p class="sub-headline">
+            Telecom apps are becoming <span class="font-bold">Super Apps</span>
+          </p>
+        </div>
+
+        <div class="blocks-container">
+          <div class="stat-block block-entertainment">
+            <div class="icon-circle">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <p class="block-title">Entertainment</p>
+            <p class="block-desc">
+              Games, media, and interactive fun that drives engagement
+            </p>
+          </div>
+          <div class="stat-block block-utilities">
+            <div class="icon-circle">
+              <i class="fas fa-mosque"></i>
+            </div>
+            <p class="block-title">Utilities</p>
+            <p class="block-desc">
+              Daily tools like prayer times, news, and essential services
+            </p>
+          </div>
+          <div class="stat-block block-content">
+            <div class="icon-circle">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="block-title">Content</p>
+            <p class="block-desc">
+              Audiobooks, learning materials, and cultural storytelling
+            </p>
+          </div>
+        </div>
+
+        <div class="statement-box">
+          <div class="statement-bg-pattern"></div>
+          <p class="statement-text">
+            "MyTeletalk can become the #1 daily-use digital platform for Bangladeshi users"
+          </p>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="trend-note">
+          <i class="fas fa-globe-asia text-gray-500"></i>
+          <p><strong>Global Trend:</strong> WeChat, Grab, Paytm — all started as single-purpose apps</p>
+        </div>
+        <div class="footer-links">
+          <p>Orbit Digital Solutions Ltd</p>
+          <p>|</p>
+          <p>toofangames.com</p>
+          <p class="slide-number">02</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

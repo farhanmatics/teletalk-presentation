@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kabbik Audiobooks Service</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: #ffffff;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .slide-container {
+        width: 100%;
+        min-width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        position: relative;
+        background-color: #ffffff;
+        color: #1f2937;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .accent-shape {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 400px;
+        height: 400px;
+        background-color: rgba(255, 107, 44, 0.03);
+        border-bottom-left-radius: 100%;
+        z-index: 0;
+      }
+
+      .accent-dot-grid {
+        position: absolute;
+        left: 40px;
+        bottom: 100px;
+        width: 200px;
+        height: 200px;
+        background-image: radial-gradient(#ff6b2c 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      .header {
+            padding: 40px 60px 10px 60px;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+      .service-tag {
+        background-color: rgba(255, 107, 44, 0.1);
+        color: #ff6b2c;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        border: 1px solid rgba(255, 107, 44, 0.3);
+      }
+
+      .main-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 42px;
+        color: #111827;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            color: #6B7280;
+        }
+
+        /* Main Content Area */
+        .content-area {
+            flex: 1;
+            display: flex;
+            padding: 30px 60px 40px 60px;
+            z-index: 10;
+            gap: 60px;
+        }
+
+        /* Left Panel: Content Pillars */
+        .left-panel {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label i {
+            color: #FF6B2C;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .pillar-card {
+            background-color: #FFF;
+            border: 1px solid #F3F4F6;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border-left: 4px solid transparent;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(255, 107, 44, 0.1);
+            border-color: #FFEDD5;
+            border-left-color: #FF6B2C;
+        }
+
+        .pillar-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: rgba(255, 107, 44, 0.1);
+            color: #FF6B2C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .pillar-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #1F2937;
+            margin: 0;
+        }
+
+        .pillar-desc {
+            font-size: 13px;
+            color: #6B7280;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Right Panel: Use Cases & Badge */
+        .right-panel {
+            flex: 0.8;
+            background-color: #FFF7ED; /* Very light orange bg */
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #FFEDD5;
+        }
+
+        .use-case-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 10px;
+        }
+
+        .use-case-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .use-case-icon {
+            width: 56px;
+            height: 56px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FF6B2C;
+            font-size: 20px;
+            box-shadow: 0 4px 6px rgba(255, 107, 44, 0.1);
+            border: 2px solid #FED7AA;
+        }
+
+        .use-case-text h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #431407; /* Dark brown/orange */
+            margin: 0 0 4px 0;
+        }
+
+        .use-case-text p {
+            font-size: 14px;
+            color: #9A3412; /* Medium orange-brown */
+            margin: 0;
+        }
+
+        /* Badge */
+        .platform-badge {
+            background-color: white;
+            border: 1px solid #FED7AA;
+            border-radius: 50px;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #EA580C;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+
+        /* Tagline Bar */
+        .tagline-container {
+            position: absolute;
+            bottom: 85px; /* Above footer */
+            left: 60px;
+            right: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            z-index: 10;
+        }
+
+        .tagline-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #FF6B2C;
+            background: linear-gradient(90deg, #ff6b2c, #f97316);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 60px;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #6B7280;
+            background-color: white;
+            z-index: 20;
+            margin-top: auto;
+        }
+
+            .footer-links { display: flex; gap: 20px; }
+        .footer-right { display: flex; align-items: center; gap: 10px; }
+        .brand-hint { color: #ff6b2c; font-size: 12px; letter-spacing: 1px; font-weight: 600; }
+        .slide-number { color: #009a44; font-weight: 600; }
+        .logo-kabbik { display: flex; align-items: center; gap: 10px; }
+        .logo-kabbik .logo-icon {
+          background: rgba(255, 107, 44, 0.1);
+          width: 44px;
+          height: 44px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(255, 107, 44, 0.2);
+          color: #ff6b2c;
+          font-size: 22px;
+        }
+        .logo-kabbik .logo-text {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+          font-size: 20px;
+          color: #1f2937;
+        }
+        .section-label-orange { color: #9a3412; }
+        .section-label-orange i { color: #ea580c; }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <div class="accent-shape"></div>
+      <div class="accent-dot-grid"></div>
+      <header class="header">
+        <div>
+          <span class="service-tag">Service 02</span>
+          <h1 class="main-title">Kabbik <span class="subtitle">— Audiobook &amp; Spoken Content</span></h1>
+        </div>
+        <div class="logo-kabbik">
+          <div class="logo-icon"><i class="fas fa-headphones"></i></div>
+          <p class="logo-text">Kabbik</p>
+        </div>
+      </header>
+      <main class="content-area">
+        <div class="left-panel">
+          <div class="section-label">
+            <i class="fas fa-layer-group"></i>
+            <span>Curated Content Library</span>
+          </div>
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fas fa-book-open"></i></div>
+              <div>
+                <h3 class="pillar-title">Bengali Literature</h3>
+                <p class="pillar-desc">Classic novels and contemporary fiction in native language.</p>
+              </div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fas fa-graduation-cap"></i></div>
+              <div>
+                <h3 class="pillar-title">Educational Content</h3>
+                <p class="pillar-desc">Learning modules and skill development audio courses.</p>
+              </div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fas fa-lightbulb"></i></div>
+              <div>
+                <h3 class="pillar-title">Inspirational Talks</h3>
+                <p class="pillar-desc">Motivation and self-improvement from local leaders.</p>
+              </div>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fas fa-theater-masks"></i></div>
+              <div>
+                <h3 class="pillar-title">Cultural Storytelling</h3>
+                <p class="pillar-desc">Rich audio dramas and heritage stories.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-panel">
+          <div>
+            <div class="section-label section-label-orange">
+              <i class="fas fa-clock"></i>
+              <span>Daily Usage Moments</span>
+            </div>
+            <div class="use-case-list">
+              <div class="use-case-item">
+                <div class="use-case-icon"><i class="fas fa-bus"></i></div>
+                <div class="use-case-text">
+                  <h4>Commuting</h4>
+                  <p>Productive travel time</p>
+                </div>
+              </div>
+              <div class="use-case-item">
+                <div class="use-case-icon"><i class="fas fa-coffee"></i></div>
+                <div class="use-case-text">
+                  <h4>Work Breaks</h4>
+                  <p>Short mental refreshes</p>
+                </div>
+              </div>
+              <div class="use-case-item">
+                <div class="use-case-icon"><i class="fas fa-moon"></i></div>
+                <div class="use-case-text">
+                  <h4>Evening Relaxation</h4>
+                  <p>Screen-free entertainment</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="platform-badge">Mobile-first | Bengali-first | Culture-first</div>
+        </div>
+      </main>
+      <div class="tagline-container">
+        <p class="tagline-text">"Listen to Bangladesh. Learn Every Day."</p>
+      </div>
+      <footer class="footer">
+        <div class="footer-links">
+          <p>Orbit Digital Solutions Ltd</p>
+          <p>|</p>
+          <p>toofangames.com</p>
+        </div>
+        <div class="footer-right">
+          <span class="brand-hint">WARM ORANGE #FF6B2C</span>
+          <p class="slide-number">08</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

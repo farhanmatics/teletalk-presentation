@@ -1,0 +1,13 @@
+{
+  "name": "teletalk-presentation",
+  "version": "1.0.0",
+  "description": "Teletalk Partnership Proposal – HTML slides and PDF export",
+  "scripts": {
+    "pdf": "node generate-pdf.js",
+    "serve": "npx serve . -p 3000"
+  },
+  "devDependencies": {
+    "pdf-merger-js": "^4.2.0",
+    "puppeteer": "^23.0.0"
+  }
+}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partnership Vision</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: #062e1c;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .slide-container {
+        width: 100%;
+        min-width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        position: relative;
+        background-color: #062e1c;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .grid-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v1H0zM0 0v40h1V0z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        z-index: 0;
+      }
+
+      .glow-effect {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        background-color: rgba(0, 154, 68, 0.15);
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: 1;
+      }
+
+      .header {
+        padding: 40px 60px 0 60px;
+        z-index: 10;
+      }
+
+      .section-tag {
+        background-color: rgba(0, 154, 68, 0.2);
+        color: #4ade80;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 15px;
+        border: 1px solid rgba(0, 154, 68, 0.5);
+      }
+
+      .main-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 42px;
+        color: white;
+        margin: 0;
+      }
+
+      .content-area {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 60px;
+        z-index: 10;
+        gap: 60px;
+      }
+
+      .visual-container {
+        width: 500px;
+        height: 450px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hub-center {
+        width: 140px;
+        height: 140px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        z-index: 20;
+        position: relative;
+        border: 4px solid #009a44;
+      }
+
+      .hub-icon {
+        color: #009a44;
+        font-size: 42px;
+        margin-bottom: 5px;
+      }
+
+      .hub-label {
+        color: #1f2937;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .hub-label-accent {
+        color: #009a44;
+      }
+
+      .orbit-ring {
+        position: absolute;
+        border: 2px dashed rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .ring-1 {
+        width: 280px;
+        height: 280px;
+      }
+
+      .ring-2 {
+        width: 420px;
+        height: 420px;
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .service-bubble {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        z-index: 15;
+        transition: transform 0.3s ease;
+        background-color: #062e1c;
+      }
+
+      .service-bubble i {
+        font-size: 28px;
+        margin-bottom: 4px;
+      }
+
+      .service-bubble span {
+        font-size: 10px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .bubble-toofan {
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-color: #6c3aff;
+      }
+
+      .bubble-toofan i,
+      .bubble-toofan span {
+        color: #6c3aff;
+      }
+
+      .bubble-kabbik {
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        border-color: #ff6b2c;
+      }
+
+      .bubble-kabbik i,
+      .bubble-kabbik span {
+        color: #ff6b2c;
+      }
+
+      .bubble-news {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-color: #009da5;
+      }
+
+      .bubble-news i,
+      .bubble-news span {
+        color: #009da5;
+      }
+
+      .bubble-prayer {
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        border-color: #d4a017;
+      }
+
+      .bubble-prayer i,
+      .bubble-prayer span {
+        color: #d4a017;
+      }
+
+      /* Avoid square shadow artifact when printing/exporting to PDF */
+      @media print {
+        .service-bubble,
+        .hub-center {
+          box-shadow: none !important;
+        }
+      }
+
+      .text-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .outcome-box {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: transform 0.2s, background-color 0.2s;
+      }
+
+      .outcome-box:hover {
+        transform: translateX(5px);
+        background-color: rgba(255, 255, 255, 0.08);
+        border-color: rgba(0, 154, 68, 0.4);
+      }
+
+      .check-icon {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 154, 68, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4ade80;
+        font-size: 18px;
+        flex-shrink: 0;
+        border: 1px solid rgba(0, 154, 68, 0.4);
+      }
+
+      .outcome-text h3 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 4px;
+        color: white;
+      }
+
+      .outcome-text p {
+        font-size: 14px;
+        color: #9ca3af;
+        line-height: 1.4;
+        margin: 0;
+      }
+
+      .footer {
+        padding: 20px 60px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(6, 46, 28, 0.9);
+        z-index: 20;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .slide-number {
+        color: #4ade80;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <div class="grid-pattern"></div>
+      <div class="glow-effect"></div>
+
+      <header class="header">
+        <div>
+          <span class="section-tag">Strategic Vision</span>
+        </div>
+        <h1 class="main-title">Creating a Digital Engagement Ecosystem</h1>
+      </header>
+
+      <main class="content-area">
+        <div class="visual-container">
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
+          <div class="hub-center">
+            <i class="fas fa-phone-alt hub-icon"></i>
+            <p class="hub-label">my<span class="hub-label-accent">teletalk</span></p>
+          </div>
+          <div class="service-bubble bubble-toofan">
+            <i class="fas fa-gamepad"></i>
+            <span>Toofan</span>
+          </div>
+          <div class="service-bubble bubble-kabbik">
+            <i class="fas fa-headphones"></i>
+            <span>Kabbik</span>
+          </div>
+          <div class="service-bubble bubble-news">
+            <i class="fas fa-newspaper"></i>
+            <span>News</span>
+          </div>
+          <div class="service-bubble bubble-prayer">
+            <i class="fas fa-mosque"></i>
+            <span>Prayer</span>
+          </div>
+        </div>
+        <div class="text-content">
+          <div class="outcome-box">
+            <div class="check-icon">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="outcome-text">
+              <h3>Richer Daily-Use Experience</h3>
+              <p>Transforming MyTeletalk from a utility app into a lifestyle destination for every subscriber.</p>
+            </div>
+          </div>
+          <div class="outcome-box">
+            <div class="check-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="outcome-text">
+              <h3>Multiple Touchpoints</h3>
+              <p>Engaging users throughout their day — from morning prayer times to evening entertainment.</p>
+            </div>
+          </div>
+          <div class="outcome-box">
+            <div class="check-icon">
+              <i class="fas fa-infinity"></i>
+            </div>
+            <div class="outcome-text">
+              <h3>One App, Endless Value</h3>
+              <p>Consolidating diverse digital services into a single, cohesive super app ecosystem.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-links">
+          <p>Orbit Digital Solutions Ltd</p>
+          <p>|</p>
+          <p>toofangames.com</p>
+        </div>
+        <p class="slide-number">04</p>
+      </footer>
+    </div>
+  </body>
+</html>

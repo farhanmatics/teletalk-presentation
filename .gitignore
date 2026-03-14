@@ -1,0 +1,6 @@
+node_modules/
+teletalk-presentation.pdf
+.DS_Store
+*.log
+.env
+.env.local

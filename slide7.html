@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToofanGames Value for Teletalk</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: #f5f7f9;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .slide-container {
+        width: 100%;
+        min-width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        position: relative;
+        background-color: #ffffff;
+        color: #1f2937;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .header-bar {
+        height: 8px;
+        width: 100%;
+        background-color: #009a44;
+      }
+
+      .header {
+        padding: 30px 60px 10px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+      }
+
+      .header-title-spacer {
+        margin-top: 10px;
+      }
+
+      .logo-toofan {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        background: rgba(108, 58, 255, 0.1);
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-icon i {
+        color: #6c3aff;
+        font-size: 20px;
+      }
+
+      .toofan-accent {
+        color: #6c3aff;
+      }
+
+      .section-tag {
+        background-color: #e6f5ed;
+        color: #009a44;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .main-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        color: #111827;
+        margin: 0;
+      }
+
+      .content-area {
+        flex: 1;
+        padding: 20px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .value-cards-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .value-card {
+        background-color: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        border-color: #009a44;
+      }
+
+      .card-icon-bg {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 16px;
+        background-color: #f3f4f6;
+        color: #4b5563;
+      }
+
+      .card-sessions .card-icon-bg {
+        background-color: rgba(0, 154, 68, 0.1);
+        color: #009a44;
+      }
+
+      .card-youth .card-icon-bg {
+        background-color: rgba(108, 58, 255, 0.1);
+        color: #6c3aff;
+      }
+
+      .card-data .card-icon-bg {
+        background-color: rgba(0, 119, 255, 0.1);
+        color: #0077ff;
+      }
+
+      .card-esports .card-icon-bg {
+        background-color: rgba(255, 107, 44, 0.1);
+        color: #ff6b2c;
+      }
+
+      .card-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #111827;
+        margin-bottom: 8px;
+      }
+
+      .card-desc {
+        font-size: 14px;
+        color: #6b7280;
+        line-height: 1.4;
+      }
+
+      .bottom-section {
+        display: flex;
+        gap: 30px;
+        height: 160px;
+      }
+
+      .monetization-box {
+        flex: 2;
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .monetization-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .monetization-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: #374151;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .revenue-streams {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .stream-tag {
+        background-color: white;
+        border: 1px solid #d1d5db;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #4b5563;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .stream-tag i {
+        color: #009a44;
+      }
+
+      .quote-box {
+        flex: 1.5;
+        background-color: #009a44;
+        border-radius: 12px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      .quote-bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      .quote-number {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 1;
+        margin-bottom: 5px;
+        z-index: 2;
+      }
+
+      .quote-text {
+        font-size: 16px;
+        font-weight: 500;
+        opacity: 0.9;
+        z-index: 2;
+      }
+
+      .footer {
+        padding: 20px 60px;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #6b7280;
+        background-color: white;
+        z-index: 20;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .slide-number {
+        color: #009a44;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <div class="header-bar"></div>
+
+      <header class="header">
+        <div>
+          <div class="section-tag">Strategic Value</div>
+          <h1 class="main-title header-title-spacer">Driving Youth Engagement Through Gaming</h1>
+        </div>
+        <div class="logo-toofan">
+          <div class="logo-icon">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <p class="font-bold text-xl text-gray-800 tracking-tight">
+            Toofan<span class="toofan-accent">Games</span>
+          </p>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <div class="value-cards-container">
+          <div class="value-card card-sessions">
+            <div class="card-icon-bg">
+              <i class="fas fa-stopwatch"></i>
+            </div>
+            <p class="card-title">Longer Sessions</p>
+            <p class="card-desc">Significantly extends daily app usage time per user visit.</p>
+          </div>
+          <div class="value-card card-youth">
+            <div class="card-icon-bg">
+              <i class="fas fa-users"></i>
+            </div>
+            <p class="card-title">Youth Market</p>
+            <p class="card-desc">Directly attracts the high-value 18–30 demographic segment.</p>
+          </div>
+          <div class="value-card card-data">
+            <div class="card-icon-bg">
+              <i class="fas fa-wifi"></i>
+            </div>
+            <p class="card-title">Data Bundles</p>
+            <p class="card-desc">Opportunity to promote specialized gaming data packs.</p>
+          </div>
+          <div class="value-card card-esports">
+            <div class="card-icon-bg">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <p class="card-title">eSports Potential</p>
+            <p class="card-desc">Future capability for branded tournaments and events.</p>
+          </div>
+        </div>
+        <div class="bottom-section">
+          <div class="monetization-box">
+            <div class="monetization-header">
+              <i class="fas fa-hand-holding-usd text-gray-500"></i>
+              <p class="monetization-title">Revenue Streams</p>
+            </div>
+            <div class="revenue-streams">
+              <div class="stream-tag">
+                <i class="fas fa-ad"></i>
+                <span>In-App Ads</span>
+              </div>
+              <div class="stream-tag">
+                <i class="fas fa-coins"></i>
+                <span>Token Purchases</span>
+              </div>
+              <div class="stream-tag">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>Carrier Billing</span>
+              </div>
+              <div class="stream-tag">
+                <i class="fas fa-star"></i>
+                <span>Subscriptions</span>
+              </div>
+            </div>
+          </div>
+          <div class="quote-box">
+            <div class="quote-bg-pattern"></div>
+            <p class="quote-number">100K+</p>
+            <p class="quote-text">Potential Daily Game Sessions</p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-links">
+          <p>Orbit Digital Solutions Ltd</p>
+          <p>|</p>
+          <p>toofangames.com</p>
+        </div>
+        <p class="slide-number">07</p>
+      </footer>
+    </div>
+  </body>
+</html>

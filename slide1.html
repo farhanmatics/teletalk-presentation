@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cover Slide - Digital Engagement Partnership Proposal</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@300;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: #062e1c;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .slide-container {
+        width: 100%;
+        min-width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        position: relative;
+        background-color: #062e1c;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+
+      .tech-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23009A44' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 0h40v1H0zM0 0v40h1V0z'/%3E%3C/g%3E%3C/svg%3E");
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .accent-line {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 8px;
+        background-color: #009a44;
+        box-shadow: 0 0 20px rgba(0, 154, 68, 0.6);
+        z-index: 10;
+      }
+
+      .title-font {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .teletalk-green-text {
+        color: #009a44;
+      }
+
+      .tech-blue-text {
+        color: #0077ff;
+      }
+
+      .cyan-text {
+        color: #00c2ff;
+      }
+
+      .color-toofan {
+        color: #6c3aff;
+      }
+
+      .color-kabbik {
+        color: #ff6b2c;
+      }
+
+      .color-news {
+        color: #009da5;
+      }
+
+      .color-prayer {
+        color: #d4a017;
+      }
+
+      .bg-toofan {
+        background-color: rgba(108, 58, 255, 0.1);
+        border: 1px solid #6c3aff;
+      }
+
+      .bg-kabbik {
+        background-color: rgba(255, 107, 44, 0.1);
+        border: 1px solid #ff6b2c;
+      }
+
+      .bg-news {
+        background-color: rgba(0, 157, 165, 0.1);
+        border: 1px solid #009da5;
+      }
+
+      .bg-prayer {
+        background-color: rgba(212, 160, 23, 0.1);
+        border: 1px solid #d4a017;
+      }
+
+      .content-wrapper {
+        z-index: 10;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 100px;
+        padding-right: 80px;
+        width: 100%;
+      }
+
+      .service-icon-box {
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        margin-bottom: 12px;
+        transition: transform 0.3s ease;
+      }
+
+      .footer {
+        z-index: 10;
+        padding: 20px 80px 20px 100px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .circle-decor {
+        position: absolute;
+        right: -100px;
+        bottom: -100px;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        border: 2px solid rgba(0, 154, 68, 0.1);
+        z-index: 1;
+      }
+
+      .circle-decor-2 {
+        position: absolute;
+        right: -50px;
+        bottom: -50px;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        border: 2px dashed rgba(0, 194, 255, 0.1);
+        z-index: 1;
+      }
+
+      .header-bar {
+        padding: 40px 80px 0 100px;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .logo-teletalk {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        background: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .divider-vertical {
+        height: 30px;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .logo-orbit {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .services-row {
+        margin-top: 60px;
+        display: flex;
+        gap: 40px;
+      }
+
+      .service-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <div class="tech-grid"></div>
+      <div class="accent-line"></div>
+      <div class="circle-decor"></div>
+      <div class="circle-decor-2"></div>
+
+      <header class="header-bar">
+        <div class="logo-teletalk">
+          <div class="logo-icon">
+            <i class="fas fa-phone-alt teletalk-green-text" style="font-size: 20px"></i>
+          </div>
+          <p class="title-font font-bold text-2xl tracking-tight">
+            <span class="text-white">my</span><span class="teletalk-green-text">teletalk</span>
+          </p>
+        </div>
+        <div class="divider-vertical"></div>
+        <div class="logo-orbit">
+          <i class="fas fa-satellite-dish text-white" style="font-size: 20px"></i>
+          <p class="title-font font-bold text-xl text-white tracking-wide">ORBIT</p>
+        </div>
+      </header>
+
+      <main class="content-wrapper">
+        <div style="margin-bottom: 20px">
+          <p class="text-sm font-semibold tracking-widest uppercase cyan-text mb-4">
+            Strategic Partnership Proposal
+          </p>
+          <h1 class="title-font font-bold text-6xl leading-tight mb-6">
+            Digital Engagement<br />
+            <span class="teletalk-green-text">Partnership Proposal</span>
+          </h1>
+          <p class="text-xl text-gray-300 font-light max-w-3xl">
+            Enhancing the MyTeletalk Super App Experience through integrated gaming,
+            content, and utility services.
+          </p>
+        </div>
+
+        <div class="services-row">
+          <div class="service-item">
+            <div class="service-icon-box bg-toofan">
+              <i class="fas fa-gamepad color-toofan"></i>
+            </div>
+            <p class="font-semibold text-sm">ToofanGames</p>
+          </div>
+          <div class="service-item">
+            <div class="service-icon-box bg-kabbik">
+              <i class="fas fa-headphones color-kabbik"></i>
+            </div>
+            <p class="font-semibold text-sm">Kabbik Audio</p>
+          </div>
+          <div class="service-item">
+            <div class="service-icon-box bg-news">
+              <i class="fas fa-newspaper color-news"></i>
+            </div>
+            <p class="font-semibold text-sm">Daily News</p>
+          </div>
+          <div class="service-item">
+            <div class="service-icon-box bg-prayer">
+              <i class="fas fa-mosque color-prayer"></i>
+            </div>
+            <p class="font-semibold text-sm">Prayer Time</p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-links">
+          <p>Orbit Digital Solutions Ltd</p>
+          <p>|</p>
+          <p>toofangames.com</p>
+        </div>
+        <p>01</p>
+      </footer>
+    </div>
+  </body>
+</html>

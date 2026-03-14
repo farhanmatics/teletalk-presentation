@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform Integration Concept</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: #f5f7f9;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .slide-container {
+        width: 100%;
+        min-width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        position: relative;
+        background-color: #ffffff;
+        color: #1f2937;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1h2v2H1V1zm4 0h2v2H5V1zm4 0h2v2H9V1z' fill='%23000000' fill-rule='evenodd'/%3E%3C/svg%3E");
+        z-index: 0;
+      }
+
+      .header {
+        padding: 30px 60px 10px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+      }
+
+      .header-left {
+        flex: 1;
+      }
+
+      .header-title-spacer {
+        margin-top: 10px;
+      }
+
+      .logo-teletalk {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        background: #009a44;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .teletalk-green {
+        color: #009a44;
+      }
+
+      .section-tag {
+        background-color: #e6f5ed;
+        color: #009a44;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .main-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+        color: #111827;
+        margin: 0;
+      }
+
+      .content-area {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 60px;
+        z-index: 10;
+        gap: 60px;
+      }
+
+      .left-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-right: 40px;
+      }
+
+      .flow-row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .flow-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 200px;
+        position: relative;
+      }
+
+      .step-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: white;
+        border: 2px solid #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #009a44;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        z-index: 2;
+      }
+
+      .step-label {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: #111827;
+        margin-bottom: 5px;
+      }
+
+      .step-desc {
+        font-size: 14px;
+        color: #6b7280;
+        line-height: 1.4;
+      }
+
+      .connector {
+        flex: 1;
+        height: 2px;
+        background-color: #e5e7eb;
+        position: relative;
+        margin: 0 20px;
+        top: -40px;
+      }
+
+      .connector::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 8px solid #e5e7eb;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+      }
+
+      .tech-note {
+        background-color: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        border-radius: 8px;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 40px;
+      }
+
+      .phone-mockup {
+        width: 280px;
+        height: 540px;
+        background-color: #111827;
+        border-radius: 40px;
+        border: 8px solid #374151;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .phone-screen {
+        flex: 1;
+        background-color: #f3f4f6;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .notch {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 24px;
+        background-color: #111827;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        z-index: 20;
+      }
+
+      .app-header {
+        background-color: #009a44;
+        padding: 40px 20px 20px 20px;
+        color: white;
+      }
+
+      .app-header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .balance-pill {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 12px;
+        border-radius: 8px;
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .app-grid {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .service-tile {
+        background-color: white;
+        border-radius: 12px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        aspect-ratio: 1;
+      }
+
+      .tile-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        margin-bottom: 4px;
+      }
+
+      .tile-toofan .tile-icon {
+        background-color: rgba(108, 58, 255, 0.1);
+        color: #6c3aff;
+      }
+
+      .tile-kabbik .tile-icon {
+        background-color: rgba(255, 107, 44, 0.1);
+        color: #ff6b2c;
+      }
+
+      .tile-news .tile-icon {
+        background-color: rgba(0, 157, 165, 0.1);
+        color: #009da5;
+      }
+
+      .tile-prayer .tile-icon {
+        background-color: rgba(212, 160, 23, 0.1);
+        color: #d4a017;
+      }
+
+      .tile-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: #374151;
+      }
+
+      .tile-muted {
+        opacity: 0.5;
+      }
+
+      .tile-muted .tile-icon {
+        background-color: #f3f4f6;
+        color: #9ca3af;
+      }
+
+      .tile-muted .tile-text {
+        color: #9ca3af;
+      }
+
+      .footer {
+        padding: 20px 60px;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #6b7280;
+        background-color: white;
+        z-index: 20;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .slide-number {
+        color: #009a44;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <div class="bg-pattern"></div>
+
+      <header class="header">
+        <div class="header-left">
+          <div class="section-tag">User Experience</div>
+          <h1 class="main-title header-title-spacer">Integration Inside MyTeletalk Super App</h1>
+        </div>
+        <div class="logo-teletalk">
+          <div class="logo-icon">
+            <i class="fas fa-phone-alt text-white" style="font-size: 16px"></i>
+          </div>
+          <p class="font-bold text-xl text-gray-800 tracking-tight">
+            <span class="text-gray-500">my</span><span class="teletalk-green">teletalk</span>
+          </p>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <div class="left-panel">
+          <div class="flow-row">
+            <div class="flow-step">
+              <div class="step-circle">
+                <i class="fas fa-hand-pointer"></i>
+              </div>
+              <p class="step-label">User Opens App</p>
+              <p class="step-desc">Seamless entry via existing MyTeletalk login</p>
+            </div>
+            <div class="connector"></div>
+            <div class="flow-step">
+              <div class="step-circle">
+                <i class="fas fa-th-large"></i>
+              </div>
+              <p class="step-label">Sees Services</p>
+              <p class="step-desc">Integrated tiles for gaming, audio, news &amp; prayer</p>
+            </div>
+            <div class="connector"></div>
+            <div class="flow-step">
+              <div class="step-circle">
+                <i class="fas fa-heart"></i>
+              </div>
+              <p class="step-label">Engages Daily</p>
+              <p class="step-desc">Increased retention and session time</p>
+            </div>
+          </div>
+          <div class="tech-note">
+            <i class="fas fa-code text-green-600"></i>
+            <p class="text-green-800 font-medium text-sm">Powered by Lightweight Webview + API Integration + SSO Support</p>
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="notch"></div>
+          <div class="phone-screen">
+            <div class="app-header">
+              <div class="app-header-top">
+                <i class="fas fa-bars text-white"></i>
+                <i class="fas fa-bell text-white"></i>
+              </div>
+              <p class="text-white text-sm opacity-80">Welcome back,</p>
+              <p class="text-white font-bold text-xl">Rahim Ahmed</p>
+              <div class="balance-pill">
+                <p class="text-white text-xs">Balance</p>
+                <p class="text-white text-xs font-bold">৳ 45.50</p>
+              </div>
+            </div>
+            <div class="app-grid">
+              <div class="service-tile tile-toofan">
+                <div class="tile-icon">
+                  <i class="fas fa-gamepad"></i>
+                </div>
+                <p class="tile-text">Games</p>
+              </div>
+              <div class="service-tile tile-kabbik">
+                <div class="tile-icon">
+                  <i class="fas fa-headphones"></i>
+                </div>
+                <p class="tile-text">Audiobooks</p>
+              </div>
+              <div class="service-tile tile-news">
+                <div class="tile-icon">
+                  <i class="fas fa-newspaper"></i>
+                </div>
+                <p class="tile-text">News</p>
+              </div>
+              <div class="service-tile tile-prayer">
+                <div class="tile-icon">
+                  <i class="fas fa-mosque"></i>
+                </div>
+                <p class="tile-text">Prayer</p>
+              </div>
+              <div class="service-tile tile-muted">
+                <div class="tile-icon">
+                  <i class="fas fa-wifi"></i>
+                </div>
+                <p class="tile-text">Internet</p>
+              </div>
+              <div class="service-tile tile-muted">
+                <div class="tile-icon">
+                  <i class="fas fa-history"></i>
+                </div>
+                <p class="tile-text">History</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-links">
+          <p>Orbit Digital Solutions Ltd</p>
+          <p>|</p>
+          <p>toofangames.com</p>
+        </div>
+        <p class="slide-number">05</p>
+      </footer>
+    </div>
+  </body>
+</html>

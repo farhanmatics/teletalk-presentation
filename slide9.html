@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily News Feed - Stay Informed, Stay Engaged</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+<style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .slide-container {
+            width: 100%;
+            min-width: 100vw;
+            height: 100vh;
+            min-height: 100vh;
+            position: relative;
+            background-color: #ffffff;
+            color: #1F2937;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Abstract Teal Accents */
+        .accent-wave {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background-color: rgba(0, 157, 165, 0.03);
+            z-index: 0;
+            clip-path: polygon(0 60%, 100% 30%, 100% 100%, 0% 100%);
+        }
+        
+        .accent-circle {
+            position: absolute;
+            right: -50px;
+            top: -50px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 40px solid rgba(0, 157, 165, 0.02);
+            z-index: 0;
+        }
+
+        /* Header */
+        .header {
+            padding: 40px 60px 10px 60px;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .service-tag {
+            background-color: rgba(0, 157, 165, 0.1);
+            color: #009DA5;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 157, 165, 0.3);
+        }
+
+        .main-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 42px;
+            color: #111827;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            color: #6B7280;
+        }
+
+        /* Main Content Area */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 60px 40px 60px;
+            z-index: 10;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        /* Category Cards Row */
+        .category-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+            justify-content: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 157, 165, 0.1);
+            border-color: #009DA5;
+        }
+        
+        .card-top-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #009DA5;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .category-card:hover .card-top-accent {
+            opacity: 1;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 157, 165, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #009DA5;
+            font-size: 24px;
+            margin-bottom: 16px;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1);
+            background-color: #009DA5;
+            color: white;
+        }
+
+        .category-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #374151;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Value Proposition Box */
+        .value-box {
+            background-color: #F0FDFA;
+            border: 1px solid #CCFBF1;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-bg-pattern {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 30%;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 157, 165, 0.05) 10px, rgba(0, 157, 165, 0.05) 20px);
+        }
+
+        .value-icon-large {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: #0D9488;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .value-content {
+            flex: 1;
+            z-index: 1;
+        }
+
+        .value-heading {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 24px;
+            color: #115E59;
+            margin-bottom: 8px;
+        }
+
+        .value-desc {
+            font-size: 16px;
+            color: #134E4A;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Small Note */
+        .small-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #6B7280;
+            background-color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #E5E7EB;
+            align-self: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 60px;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #6B7280;
+            background-color: white;
+            z-index: 20;
+            margin-top: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Accents -->
+<div class="accent-wave"></div>
+<div class="accent-circle"></div>
+<!-- Header -->
+<div class="header">
+<div>
+<span class="service-tag">Service 03</span>
+<h1 class="main-title">Daily News Feed <span class="subtitle">— Stay Informed, Stay Engaged</span></h1>
+</div>
+<!-- Logo Area -->
+<div style="display: flex; align-items: center; gap: 10px;">
+<div style="background: rgba(0, 157, 165, 0.1); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0, 157, 165, 0.2);">
+<i class="fas fa-newspaper" style="color: #009DA5; font-size: 22px;"></i>
+</div>
+<p style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 20px; color: #1F2937;">News Feed</p>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-area">
+<!-- Category Cards Row -->
+<div class="category-row">
+<!-- Card 1 -->
+<div class="category-card">
+<div class="card-top-accent"></div>
+<div class="category-icon">
+<i class="fas fa-flag"></i>
+</div>
+<p class="category-title">National<br/>Headlines</p>
+</div>
+<!-- Card 2 -->
+<div class="category-card">
+<div class="card-top-accent"></div>
+<div class="category-icon">
+<i class="fas fa-globe-asia"></i>
+</div>
+<p class="category-title">Global<br/>Updates</p>
+</div>
+<!-- Card 3 -->
+<div class="category-card">
+<div class="card-top-accent"></div>
+<div class="category-icon">
+<i class="fas fa-microchip"></i>
+</div>
+<p class="category-title">Technology<br/>News</p>
+</div>
+<!-- Card 4 -->
+<div class="category-card">
+<div class="card-top-accent"></div>
+<div class="category-icon">
+<i class="fas fa-futbol"></i>
+</div>
+<p class="category-title">Sports<br/>Updates</p>
+</div>
+<!-- Card 5 -->
+<div class="category-card">
+<div class="card-top-accent"></div>
+<div class="category-icon">
+<i class="fas fa-chart-line"></i>
+</div>
+<p class="category-title">Economy<br/>&amp; Finance</p>
+</div>
+</div>
+<!-- Value Proposition Box -->
+<div class="value-box">
+<div class="value-bg-pattern"></div>
+<div class="value-icon-large">
+<i class="fas fa-coffee"></i>
+</div>
+<div class="value-content">
+<h3 class="value-heading">The Morning Habit</h3>
+<p class="value-desc">A lightweight daily news habit that brings users back to MyTeletalk every morning, establishing a consistent daily active user cycle.</p>
+</div>
+</div>
+<!-- Small Note -->
+<div class="small-note">
+<i class="fas fa-bolt text-yellow-500"></i>
+<p style="margin: 0;">Fast, curated, mobile-optimized news experience</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div style="display: flex; gap: 20px;">
+<p>Orbit Digital Solutions Ltd</p>
+<p>|</p>
+<p>toofangames.com</p>
+</div>
+<div style="display: flex; align-items: center; gap: 10px;">
+<span style="color: #009DA5; font-size: 12px; letter-spacing: 1px; font-weight: 600;">TEAL #009DA5</span>
+<p style="color: #009A44; font-weight: 600;">09</p>
+</div>
+</div>
+</div>
+</body>
+</html>
