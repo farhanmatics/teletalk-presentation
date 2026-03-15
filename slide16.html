@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monetisation Opportunities</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+<style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f9fafb;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .slide-container {
+            width: 100%;
+            min-width: 100vw;
+            height: 100vh;
+            min-height: 100vh;
+            position: relative;
+            background-color: #ffffff;
+            color: #1F2937;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Accent Bar */
+        .top-accent {
+            height: 6px;
+            width: 100%;
+            background-color: #009A44; /* Teletalk Green */
+        }
+
+        /* Background Graphics */
+        .bg-circle-1 {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 40px solid rgba(0, 154, 68, 0.03);
+            z-index: 0;
+        }
+        
+        .bg-circle-2 {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(0, 119, 255, 0.02);
+            z-index: 0;
+        }
+
+        /* Header */
+        .header {
+            padding: 30px 60px 10px 60px;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 38px;
+            color: #111827;
+            margin: 0;
+        }
+
+        .section-tag {
+            background-color: #E6F5ED;
+            color: #009A44;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 20px 60px 30px 60px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        /* Revenue Grid */
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .revenue-card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+        }
+
+        .revenue-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 154, 68, 0.08);
+            border-color: #009A44;
+        }
+
+        .card-icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 16px;
+            transition: transform 0.3s;
+        }
+
+        .revenue-card:hover .card-icon-box {
+            transform: scale(1.1);
+        }
+
+        /* Specific Card Styles */
+        .card-billing .card-icon-box { background-color: rgba(0, 154, 68, 0.1); color: #009A44; }
+        .card-ads .card-icon-box { background-color: rgba(0, 119, 255, 0.1); color: #0077FF; }
+        .card-iap .card-icon-box { background-color: rgba(108, 58, 255, 0.1); color: #6C3AFF; }
+        .card-subs .card-icon-box { background-color: rgba(255, 107, 44, 0.1); color: #FF6B2C; }
+        .card-sponsor .card-icon-box { background-color: rgba(212, 160, 23, 0.1); color: #D4A017; }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #1F2937;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+
+        /* Highlight Box (Full Width at Bottom) */
+        .highlight-box {
+            background-color: #062E1C;
+            border-radius: 16px;
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 300px;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 20px);
+        }
+
+        .highlight-text-group {
+            z-index: 2;
+        }
+
+        .highlight-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .highlight-subtitle {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .highlight-badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4ADE80; /* Light Green */
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        /* Flexible Model Note */
+        .model-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #F3F4F6;
+            padding: 10px 20px;
+            border-radius: 30px;
+            align-self: center;
+            margin-top: 5px;
+        }
+
+        .model-note i {
+            color: #009A44;
+        }
+
+        .model-note p {
+            font-size: 14px;
+            color: #4B5563;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 60px;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #6B7280;
+            background-color: white;
+            z-index: 20;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Top Accent -->
+<div class="top-accent"></div>
+<!-- Background Graphics -->
+<div class="bg-circle-1"></div>
+<div class="bg-circle-2"></div>
+<!-- Header -->
+<div class="header">
+<div>
+<div class="section-tag">Business Model</div>
+<h1 class="main-title" style="margin-top: 10px;">Revenue Opportunities for Teletalk</h1>
+</div>
+<!-- Dual Logo Placeholder -->
+<div style="display: flex; align-items: center; gap: 15px;">
+<div style="text-align: right;">
+<p style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; color: #1F2937; margin: 0;">MyTeletalk</p>
+<p style="font-size: 12px; color: #009A44; margin: 0;">Ecosystem</p>
+</div>
+<div style="width: 40px; height: 40px; background-color: #009A44; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+<i class="fas fa-chart-pie text-white"></i>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-area">
+<!-- Revenue Grid (Top row 3, Bottom row 2 centered) -->
+<div class="revenue-grid">
+<!-- Card 1 -->
+<div class="revenue-card card-billing">
+<div class="card-icon-box">
+<i class="fas fa-file-invoice-dollar"></i>
+</div>
+<p class="card-title">Carrier Billing</p>
+<p class="card-desc">Seamless operator charging integration for frictionless user payments.</p>
+</div>
+<!-- Card 2 -->
+<div class="revenue-card card-ads">
+<div class="card-icon-box">
+<i class="fas fa-ad"></i>
+</div>
+<p class="card-title">Digital Advertising</p>
+<p class="card-desc">Monetize free users via targeted in-app ad placements and banners.</p>
+</div>
+<!-- Card 3 -->
+<div class="revenue-card card-iap">
+<div class="card-icon-box">
+<i class="fas fa-coins"></i>
+</div>
+<p class="card-title">In-App Purchases</p>
+<p class="card-desc">Direct revenue from game tokens, power-ups, and premium content unlocks.</p>
+</div>
+</div>
+<!-- Bottom Row (2 Cards centered) -->
+<div class="revenue-grid" style="grid-template-columns: repeat(2, 1fr); width: 66%; margin: 0 auto;">
+<!-- Card 4 -->
+<div class="revenue-card card-subs">
+<div class="card-icon-box">
+<i class="fas fa-star"></i>
+</div>
+<p class="card-title">Premium Subscriptions</p>
+<p class="card-desc">Monthly recurring revenue from audiobook &amp; ad-free gaming plans.</p>
+</div>
+<!-- Card 5 -->
+<div class="revenue-card card-sponsor">
+<div class="card-icon-box">
+<i class="fas fa-handshake"></i>
+</div>
+<p class="card-title">Sponsored Content</p>
+<p class="card-desc">High-value brand partnerships and sponsored gaming tournaments.</p>
+</div>
+</div>
+<!-- Highlight Box -->
+<div class="highlight-box">
+<div class="highlight-pattern"></div>
+<div class="highlight-text-group">
+<p class="highlight-title">Beyond Voice &amp; Data</p>
+<p class="highlight-subtitle">Unlocking new digital revenue streams for the modern telco era.</p>
+</div>
+<div class="highlight-badge">
+<i class="fas fa-check-circle"></i>
+<span>Flexible Revenue Sharing Model</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div style="display: flex; gap: 20px;">
+<p>Orbit Digital Solutions Ltd</p>
+<p>|</p>
+<p>toofangames.com</p>
+</div>
+<p style="color: #009A44; font-weight: 600;">16</p>
+</div>
+</div>
+</body>
+</html>

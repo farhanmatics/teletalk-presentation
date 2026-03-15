@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Strategic Value for Teletalk</title>
+    <title>Hajj &amp; Umrah Updates – Religious Travel Information</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -17,327 +16,380 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
       rel="stylesheet"
     />
-<style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #062e1c;
-        }
-        body { font-family: 'Inter', sans-serif; }
-        .slide-container {
-            width: 100%;
-            min-width: 100vw;
-            height: 100vh;
-            min-height: 100vh;
-            position: relative;
-            background-color: #062e1c;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: #1a1200;
+      }
 
-        /* Subtle Background Pattern */
-        .bg-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-            z-index: 0;
-        }
-        
-        .glow-effect {
-            position: absolute;
-            top: -150px;
-            right: -150px;
-            width: 600px;
-            height: 600px;
-            background-color: #009A44;
-            opacity: 0.1;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-        }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
 
-        /* Header */
-        .header {
-            padding: 40px 60px 10px 60px;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
+      .slide-container {
+        width: 100%;
+        min-width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        position: relative;
+        background-color: #1a1200;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
 
-        .header-accent {
-            width: 80px;
-            height: 6px;
-            background-color: #009A44;
-            margin-bottom: 20px;
-            border-radius: 3px;
-        }
+      .bg-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23D4A017' fill-opacity='0.08' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        z-index: 0;
+      }
 
-        .main-title {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 40px;
-            color: white;
-            line-height: 1.2;
-            margin: 0;
-        }
+      .bg-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v1H0zM0 0v40h1V0z' fill='%23D4A017' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        z-index: 0;
+      }
 
-        .subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            color: #A7F3D0;
-            letter-spacing: 1px;
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
+      .header {
+        padding: 36px 60px 10px 60px;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
 
-        /* Content Area */
-        .content-area {
-            flex: 1;
-            padding: 30px 60px;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 30px;
-        }
+      .service-tag {
+        background-color: rgba(212, 160, 23, 0.2);
+        color: #d4a017;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 10px;
+        border: 1px solid rgba(212, 160, 23, 0.4);
+      }
 
-        /* Pillars Grid */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 24px;
-            margin-bottom: 20px;
-        }
+      .main-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 38px;
+        color: white;
+        line-height: 1.2;
+        margin: 0 0 4px 0;
+      }
 
-        .pillar-card {
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            grid-column: span 2;
-            height: 220px;
-            justify-content: center;
-        }
+      .subtitle {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 500;
+        margin: 0;
+      }
 
-        .pillar-card:hover {
-            transform: translateY(-8px);
-            background-color: rgba(255, 255, 255, 0.07);
-            border-color: #009A44;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
 
-        /* Center alignment for bottom row cards */
-        .pillar-card.bottom-row-left {
-            grid-column-start: 2;
-            grid-column-end: 4;
-        }
-        
-        .pillar-card.bottom-row-right {
-            grid-column-start: 4;
-            grid-column-end: 6;
-        }
+      .logo-icon {
+        width: 44px;
+        height: 44px;
+        background-color: rgba(212, 160, 23, 0.15);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(212, 160, 23, 0.3);
+        color: #d4a017;
+        font-size: 20px;
+      }
 
-        .icon-container {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(0, 154, 68, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            border: 1px solid rgba(0, 154, 68, 0.3);
-            transition: all 0.3s;
-        }
+      .content-area {
+        flex: 1;
+        padding: 10px 60px 20px 60px;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+      }
 
-        .pillar-card:hover .icon-container {
-            background-color: #009A44;
-            border-color: #009A44;
-            transform: scale(1.1);
-        }
+      .cards-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
 
-        .pillar-card:hover .pillar-icon {
-            color: white;
-        }
+      .info-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(212, 160, 23, 0.2);
+        border-radius: 16px;
+        padding: 28px 22px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        backdrop-filter: blur(4px);
+        transition: transform 0.2s, background-color 0.2s;
+      }
 
-        .pillar-icon {
-            font-size: 30px;
-            color: #4ADE80; /* Light Green */
-            transition: color 0.3s;
-        }
+      .info-card:hover {
+        transform: translateY(-5px);
+        background-color: rgba(212, 160, 23, 0.1);
+        border-color: #d4a017;
+      }
 
-        .pillar-title {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: white;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
+      .card-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: rgba(212, 160, 23, 0.1);
+        color: #d4a017;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 18px;
+        border: 1px solid rgba(212, 160, 23, 0.3);
+      }
 
-        .pillar-desc {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.4;
-        }
+      .card-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: white;
+        margin-bottom: 10px;
+      }
 
-        /* Summary Box */
-        .summary-box {
-            background-color: rgba(6, 46, 28, 0.6);
-            border: 1px solid #009A44;
-            border-radius: 12px;
-            padding: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 154, 68, 0.15);
-        }
+      .card-desc {
+        font-size: 14px;
+        color: #d1d5db;
+        line-height: 1.5;
+        margin: 0;
+      }
 
-        .summary-box::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 6px;
-            background-color: #009A44;
-        }
+      .bottom-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
 
-        .summary-icon {
-            font-size: 32px;
-            color: #009A44;
-            flex-shrink: 0;
-        }
+      .bottom-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(212, 160, 23, 0.15);
+        border-radius: 14px;
+        padding: 22px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        transition: background-color 0.2s;
+      }
 
-        .summary-text {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 20px;
-            color: white;
-            text-align: left;
-            margin: 0;
-        }
+      .bottom-card:hover {
+        background-color: rgba(212, 160, 23, 0.08);
+        border-color: rgba(212, 160, 23, 0.35);
+      }
 
-        /* Footer */
-        .footer {
-            padding: 20px 60px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 20;
-            margin-top: auto;
-        }
+      .bottom-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background-color: rgba(212, 160, 23, 0.1);
+        color: #d4a017;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+        border: 1px solid rgba(212, 160, 23, 0.25);
+      }
 
+      .bottom-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 15px;
+        color: white;
+        margin-bottom: 3px;
+      }
+
+      .bottom-desc {
+        font-size: 13px;
+        color: #9ca3af;
+        line-height: 1.4;
+        margin: 0;
+      }
+
+      .tagline-box {
+        background-color: rgba(212, 160, 23, 0.15);
+        border: 1px solid rgba(212, 160, 23, 0.4);
+        border-radius: 12px;
+        padding: 18px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .tagline-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(212, 160, 23, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fcd34d;
+        font-size: 18px;
+        flex-shrink: 0;
+        border: 1px solid rgba(212, 160, 23, 0.4);
+      }
+
+      .tagline-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fcd34d;
+        margin: 0;
+      }
+
+      .footer {
+        padding: 16px 60px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(26, 18, 0, 0.8);
+        z-index: 20;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .slide-number {
+        color: #d4a017;
+        font-weight: 600;
+      }
     </style>
-</head>
-<body>
-<div class="slide-container">
-<!-- Background Elements -->
-<div class="bg-pattern"></div>
-<div class="glow-effect"></div>
-<!-- Header -->
-<div class="header">
-<div>
-<div class="header-accent"></div>
-<h1 class="main-title">Strengthening the MyTeletalk Ecosystem</h1>
-<p class="subtitle">Strategic Impact &amp; Long-term Value</p>
-</div>
-<!-- Dual Logo Placeholder -->
-<div style="display: flex; align-items: center; gap: 15px;">
-<div style="text-align: right;">
-<p style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; color: white; margin: 0;">MyTeletalk</p>
-<p style="font-size: 12px; color: #009A44; margin: 0;">Super App</p>
-</div>
-<div style="width: 48px; height: 48px; background-color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-<div style="width: 24px; height: 24px; background-color: #009A44; border-radius: 4px;"></div>
-</div>
-</div>
-</div>
-<!-- Content Area -->
-<div class="content-area">
-<!-- Pillars Grid -->
-<div class="pillars-grid">
-<!-- Pillar 1 -->
-<div class="pillar-card">
-<div class="icon-container">
-<i class="fas fa-users pillar-icon"></i>
-</div>
-<h3 class="pillar-title">Higher Daily<br/>Active Users</h3>
-<p class="pillar-desc">Driving consistent daily traffic through habitual utility usage.</p>
-</div>
-<!-- Pillar 2 -->
-<div class="pillar-card">
-<div class="icon-container">
-<i class="fas fa-clock pillar-icon"></i>
-</div>
-<h3 class="pillar-title">Longer Session<br/>Times</h3>
-<p class="pillar-desc">Increasing in-app duration via gaming and audio content.</p>
-</div>
-<!-- Pillar 3 -->
-<div class="pillar-card">
-<div class="icon-container">
-<i class="fas fa-rocket pillar-icon"></i>
-</div>
-<h3 class="pillar-title">Youth Market<br/>Penetration</h3>
-<p class="pillar-desc">Attracting Gen-Z users with modern digital entertainment.</p>
-</div>
-<!-- Pillar 4 (Bottom Left) -->
-<div class="pillar-card bottom-row-left">
-<div class="icon-container">
-<i class="fas fa-layer-group pillar-icon"></i>
-</div>
-<h3 class="pillar-title">Expanded Digital<br/>Services Portfolio</h3>
-<p class="pillar-desc">Transforming from single-utility to a multi-service platform.</p>
-</div>
-<!-- Pillar 5 (Bottom Right) -->
-<div class="pillar-card bottom-row-right">
-<div class="icon-container">
-<i class="fas fa-hand-holding-usd pillar-icon"></i>
-</div>
-<h3 class="pillar-title">New Monetisation<br/>Channels</h3>
-<p class="pillar-desc">Diversifying revenue through ads, billing, and subscriptions.</p>
-</div>
-</div>
-<!-- Summary Statement Box -->
-<div class="summary-box">
-<i class="fas fa-quote-left summary-icon"></i>
-<p class="summary-text">"MyTeletalk transforms from a utility app into Bangladesh's essential digital companion"</p>
-<i class="fas fa-quote-right summary-icon" style="font-size: 20px; align-self: flex-end; opacity: 0.5;"></i>
-</div>
-</div>
-<!-- Footer -->
-<div class="footer">
-<div style="display: flex; gap: 20px;">
-<p>Orbit Digital Solutions Ltd</p>
-<p>|</p>
-<p>toofangames.com</p>
-</div>
-<div style="display: flex; align-items: center; gap: 10px;">
-<span style="color: #009A44; font-size: 12px; letter-spacing: 1px; font-weight: 600;">STRATEGY</span>
-<p style="color: white; font-weight: 600;">14</p>
-</div>
-</div>
-</div>
-</body>
+  </head>
+  <body>
+    <div class="slide-container">
+      <div class="bg-wave"></div>
+      <div class="bg-pattern"></div>
+
+      <header class="header">
+        <div>
+          <span class="service-tag">Hajj &amp; Umrah Updates</span>
+          <h1 class="main-title">Religious Travel Information</h1>
+          <p class="subtitle">Serving the spiritual journey of millions of Bangladeshi Muslims</p>
+        </div>
+        <div class="logo-area">
+          <div class="logo-icon">
+            <i class="fas fa-kaaba"></i>
+          </div>
+          <p class="font-bold text-lg text-white">Hajj &amp; Umrah</p>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <div class="cards-row">
+          <div class="info-card">
+            <div class="card-icon">
+              <i class="fas fa-plane-departure"></i>
+            </div>
+            <p class="card-title">Flight &amp; Package Info</p>
+            <p class="card-desc">
+              Latest Hajj/Umrah travel packages, airline schedules, and approved travel agency listings.
+            </p>
+          </div>
+          <div class="info-card">
+            <div class="card-icon">
+              <i class="fas fa-passport"></i>
+            </div>
+            <p class="card-title">Visa &amp; Documentation</p>
+            <p class="card-desc">
+              Step-by-step guides for Saudi visa applications, required documents, and embassy updates.
+            </p>
+          </div>
+          <div class="info-card">
+            <div class="card-icon">
+              <i class="fas fa-book-quran"></i>
+            </div>
+            <p class="card-title">Spiritual Preparation</p>
+            <p class="card-desc">
+              Dua collections, ritual guides, and educational content for Hajj and Umrah pilgrims.
+            </p>
+          </div>
+        </div>
+
+        <div class="bottom-row">
+          <div class="bottom-card">
+            <div class="bottom-icon">
+              <i class="fas fa-bell"></i>
+            </div>
+            <div>
+              <p class="bottom-title">Government Alerts</p>
+              <p class="bottom-desc">Official Hajj registration updates and Ministry announcements.</p>
+            </div>
+          </div>
+          <div class="bottom-card">
+            <div class="bottom-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <div>
+              <p class="bottom-title">Location Guides</p>
+              <p class="bottom-desc">Maps of Makkah, Madinah, and key pilgrimage sites.</p>
+            </div>
+          </div>
+          <div class="bottom-card">
+            <div class="bottom-icon">
+              <i class="fas fa-hospital"></i>
+            </div>
+            <div>
+              <p class="bottom-title">Health &amp; Safety</p>
+              <p class="bottom-desc">Vaccination requirements, health tips, and emergency contacts.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tagline-box">
+          <div class="tagline-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="tagline-text">A deeply meaningful service for the largest Muslim population in South Asia</p>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-links">
+          <p>Orbit Digital Solutions Ltd</p>
+          <p>|</p>
+          <p>toofangames.com</p>
+        </div>
+        <p class="slide-number">14</p>
+      </footer>
+    </div>
+  </body>
 </html>

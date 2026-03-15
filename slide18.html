@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strategic Value for Teletalk</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+<style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #062e1c;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .slide-container {
+            width: 100%;
+            min-width: 100vw;
+            height: 100vh;
+            min-height: 100vh;
+            position: relative;
+            background-color: #062e1c;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Subtle Background Pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .glow-effect {
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 600px;
+            height: 600px;
+            background-color: #009A44;
+            opacity: 0.1;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+
+        /* Header */
+        .header {
+            padding: 40px 60px 10px 60px;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-accent {
+            width: 80px;
+            height: 6px;
+            background-color: #009A44;
+            margin-bottom: 20px;
+            border-radius: 3px;
+        }
+
+        .main-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 40px;
+            color: white;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #A7F3D0;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 30px 60px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        /* Pillars Grid */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .pillar-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            grid-column: span 2;
+            height: 220px;
+            justify-content: center;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            background-color: rgba(255, 255, 255, 0.07);
+            border-color: #009A44;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Center alignment for bottom row cards */
+        .pillar-card.bottom-row-left {
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+        
+        .pillar-card.bottom-row-right {
+            grid-column-start: 4;
+            grid-column-end: 6;
+        }
+
+        .icon-container {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 154, 68, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 154, 68, 0.3);
+            transition: all 0.3s;
+        }
+
+        .pillar-card:hover .icon-container {
+            background-color: #009A44;
+            border-color: #009A44;
+            transform: scale(1.1);
+        }
+
+        .pillar-card:hover .pillar-icon {
+            color: white;
+        }
+
+        .pillar-icon {
+            font-size: 30px;
+            color: #4ADE80; /* Light Green */
+            transition: color 0.3s;
+        }
+
+        .pillar-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .pillar-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+        }
+
+        /* Summary Box */
+        .summary-box {
+            background-color: rgba(6, 46, 28, 0.6);
+            border: 1px solid #009A44;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 154, 68, 0.15);
+        }
+
+        .summary-box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 6px;
+            background-color: #009A44;
+        }
+
+        .summary-icon {
+            font-size: 32px;
+            color: #009A44;
+            flex-shrink: 0;
+        }
+
+        .summary-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: white;
+            text-align: left;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 20;
+            margin-top: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="bg-pattern"></div>
+<div class="glow-effect"></div>
+<!-- Header -->
+<div class="header">
+<div>
+<div class="header-accent"></div>
+<h1 class="main-title">Strengthening the MyTeletalk Ecosystem</h1>
+<p class="subtitle">Strategic Impact &amp; Long-term Value</p>
+</div>
+<!-- Dual Logo Placeholder -->
+<div style="display: flex; align-items: center; gap: 15px;">
+<div style="text-align: right;">
+<p style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; color: white; margin: 0;">MyTeletalk</p>
+<p style="font-size: 12px; color: #009A44; margin: 0;">Super App</p>
+</div>
+<div style="width: 48px; height: 48px; background-color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+<div style="width: 24px; height: 24px; background-color: #009A44; border-radius: 4px;"></div>
+</div>
+</div>
+</div>
+<!-- Content Area -->
+<div class="content-area">
+<!-- Pillars Grid -->
+<div class="pillars-grid">
+<!-- Pillar 1 -->
+<div class="pillar-card">
+<div class="icon-container">
+<i class="fas fa-users pillar-icon"></i>
+</div>
+<h3 class="pillar-title">Higher Daily<br/>Active Users</h3>
+<p class="pillar-desc">Driving consistent daily traffic through habitual utility usage.</p>
+</div>
+<!-- Pillar 2 -->
+<div class="pillar-card">
+<div class="icon-container">
+<i class="fas fa-clock pillar-icon"></i>
+</div>
+<h3 class="pillar-title">Longer Session<br/>Times</h3>
+<p class="pillar-desc">Increasing in-app duration via gaming and audio content.</p>
+</div>
+<!-- Pillar 3 -->
+<div class="pillar-card">
+<div class="icon-container">
+<i class="fas fa-rocket pillar-icon"></i>
+</div>
+<h3 class="pillar-title">Youth Market<br/>Penetration</h3>
+<p class="pillar-desc">Attracting Gen-Z users with modern digital entertainment.</p>
+</div>
+<!-- Pillar 4 (Bottom Left) -->
+<div class="pillar-card bottom-row-left">
+<div class="icon-container">
+<i class="fas fa-layer-group pillar-icon"></i>
+</div>
+<h3 class="pillar-title">Expanded Digital<br/>Services Portfolio</h3>
+<p class="pillar-desc">Transforming from single-utility to a multi-service platform.</p>
+</div>
+<!-- Pillar 5 (Bottom Right) -->
+<div class="pillar-card bottom-row-right">
+<div class="icon-container">
+<i class="fas fa-hand-holding-usd pillar-icon"></i>
+</div>
+<h3 class="pillar-title">New Monetisation<br/>Channels</h3>
+<p class="pillar-desc">Diversifying revenue through ads, billing, and subscriptions.</p>
+</div>
+</div>
+<!-- Summary Statement Box -->
+<div class="summary-box">
+<i class="fas fa-quote-left summary-icon"></i>
+<p class="summary-text">"MyTeletalk transforms from a utility app into Bangladesh's essential digital companion"</p>
+<i class="fas fa-quote-right summary-icon" style="font-size: 20px; align-self: flex-end; opacity: 0.5;"></i>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div style="display: flex; gap: 20px;">
+<p>Orbit Digital Solutions Ltd</p>
+<p>|</p>
+<p>toofangames.com</p>
+</div>
+<div style="display: flex; align-items: center; gap: 10px;">
+<span style="color: #009A44; font-size: 12px; letter-spacing: 1px; font-weight: 600;">STRATEGY</span>
+<p style="color: white; font-weight: 600;">18</p>
+</div>
+</div>
+</div>
+</body>
+</html>
