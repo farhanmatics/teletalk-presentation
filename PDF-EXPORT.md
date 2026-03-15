@@ -1,6 +1,6 @@
 # Export presentation to PDF
 
-You can get a single PDF with all 15 slides in two ways.
+You can get a single PDF with all 18 slides in two ways.
 
 ---
 
@@ -15,7 +15,7 @@ You can get a single PDF with all 15 slides in two ways.
    - **Paper size:** e.g. A4 or “Fit to page” so each slide is one page.
 5. Click **Save** and choose where to store the file.
 
-Result: one PDF with 15 pages (one slide per page).
+Result: one PDF with 18 pages (one slide per page).
 
 ---
 
